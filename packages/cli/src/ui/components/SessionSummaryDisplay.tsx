@@ -34,7 +34,7 @@ export const SessionSummaryDisplay: React.FC<SessionSummaryDisplayProps> = ({
     totalTokens: stats.totalTokenCount,
   };
 
-  const title = 'Agent powering down. Goodbye!';
+  const title = '代理关闭中。再见！';
 
   return (
     <Box
@@ -57,16 +57,16 @@ export const SessionSummaryDisplay: React.FC<SessionSummaryDisplayProps> = ({
 
       <Box marginTop={1}>
         <StatsColumn
-          title={`Cumulative Stats (${stats.turnCount} Turns)`}
+          title={`累计统计 (${stats.turnCount} 轮对话)`}
           stats={cumulativeFormatted}
           isCumulative={true}
         >
           <Box marginTop={1} flexDirection="column">
             <StatRow
-              label="Total duration (API)"
+              label="总持续时间 (API)"
               value={formatDuration(stats.apiTimeMs)}
             />
-            <StatRow label="Total duration (wall)" value={duration} />
+            <StatRow label="总持续时间 (实际)" value={duration} />
           </Box>
         </StatsColumn>
       </Box>
