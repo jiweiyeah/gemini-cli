@@ -57,17 +57,17 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
       paddingX={2}
     >
       <Text bold color={Colors.AccentPurple}>
-        Stats
+        统计信息
       </Text>
 
       <Box flexDirection="row" justifyContent="space-between" marginTop={1}>
         <StatsColumn
-          title="Last Turn"
+          title="上一轮"
           stats={lastTurnFormatted}
           width={COLUMN_WIDTH}
         />
         <StatsColumn
-          title={`Cumulative (${stats.turnCount} Turns)`}
+          title={`累计 (${stats.turnCount} 轮)`}
           stats={cumulativeFormatted}
           isCumulative={true}
           width={COLUMN_WIDTH}
@@ -78,7 +78,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
         {/* Left column for "Last Turn" duration */}
         <Box width={COLUMN_WIDTH} flexDirection="column">
           <StatRow
-            label="Turn Duration (API)"
+            label="本轮持续时间 (API)"
             value={formatDuration(lastTurnStats.apiTimeMs)}
           />
         </Box>
@@ -86,10 +86,10 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
         {/* Right column for "Cumulative" durations */}
         <Box width={COLUMN_WIDTH} flexDirection="column">
           <StatRow
-            label="Total duration (API)"
+            label="总持续时间 (API)"
             value={formatDuration(stats.apiTimeMs)}
           />
-          <StatRow label="Total duration (wall)" value={duration} />
+          <StatRow label="总持续时间 (实际)" value={duration} />
         </Box>
       </Box>
     </Box>
