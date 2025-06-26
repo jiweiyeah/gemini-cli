@@ -32,13 +32,13 @@ export const AboutBox: React.FC<AboutBoxProps> = ({
   >
     <Box marginBottom={1}>
       <Text bold color={Colors.AccentPurple}>
-        About Gemini CLI
+        关于 Gemini CLI
       </Text>
     </Box>
     <Box flexDirection="row">
       <Box width="35%">
         <Text bold color={Colors.LightBlue}>
-          CLI Version
+          CLI 版本
         </Text>
       </Box>
       <Box>
@@ -49,7 +49,7 @@ export const AboutBox: React.FC<AboutBoxProps> = ({
       <Box flexDirection="row">
         <Box width="35%">
           <Text bold color={Colors.LightBlue}>
-            Git Commit
+            Git 提交
           </Text>
         </Box>
         <Box>
@@ -60,7 +60,7 @@ export const AboutBox: React.FC<AboutBoxProps> = ({
     <Box flexDirection="row">
       <Box width="35%">
         <Text bold color={Colors.LightBlue}>
-          Model
+          模型
         </Text>
       </Box>
       <Box>
@@ -70,7 +70,7 @@ export const AboutBox: React.FC<AboutBoxProps> = ({
     <Box flexDirection="row">
       <Box width="35%">
         <Text bold color={Colors.LightBlue}>
-          Sandbox
+          沙箱
         </Text>
       </Box>
       <Box>
@@ -80,7 +80,7 @@ export const AboutBox: React.FC<AboutBoxProps> = ({
     <Box flexDirection="row">
       <Box width="35%">
         <Text bold color={Colors.LightBlue}>
-          OS
+          操作系统
         </Text>
       </Box>
       <Box>

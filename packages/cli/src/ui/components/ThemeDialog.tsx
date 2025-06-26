@@ -55,8 +55,8 @@ export function ThemeDialog({
   );
 
   const scopeItems = [
-    { label: 'User Settings', value: SettingScope.User },
-    { label: 'Workspace Settings', value: SettingScope.Workspace },
+    { label: '用户设置', value: SettingScope.User },
+    { label: '工作区设置', value: SettingScope.Workspace },
   ];
 
   const handleThemeSelect = (themeName: string) => {
@@ -180,7 +180,7 @@ export function ThemeDialog({
         {/* Left Column: Selection */}
         <Box flexDirection="column" width="45%" paddingRight={2}>
           <Text bold={currenFocusedSection === 'theme'} wrap="truncate">
-            {currenFocusedSection === 'theme' ? '> ' : '  '}Select Theme{' '}
+            {currenFocusedSection === 'theme' ? '> ' : '  '}选择主题{' '}
             <Text color={Colors.Gray}>{otherScopeModifiedMessage}</Text>
           </Text>
           <RadioButtonSelect
@@ -196,7 +196,7 @@ export function ThemeDialog({
           {showScopeSelection && (
             <Box marginTop={1} flexDirection="column">
               <Text bold={currenFocusedSection === 'scope'} wrap="truncate">
-                {currenFocusedSection === 'scope' ? '> ' : '  '}Apply To
+                {currenFocusedSection === 'scope' ? '> ' : '  '}应用于
               </Text>
               <RadioButtonSelect
                 items={scopeItems}
@@ -211,7 +211,7 @@ export function ThemeDialog({
 
         {/* Right Column: Preview */}
         <Box flexDirection="column" width="55%" paddingLeft={2}>
-          <Text bold>Preview</Text>
+          <Text bold>预览</Text>
           <Box
             borderStyle="single"
             borderColor={Colors.Gray}
@@ -249,8 +249,8 @@ export function ThemeDialog({
       </Box>
       <Box marginTop={1}>
         <Text color={Colors.Gray} wrap="truncate">
-          (Use Enter to select
-          {showScopeSelection ? ', Tab to change focus' : ''})
+          (按Enter键选择
+          {showScopeSelection ? '，按Tab键切换焦点' : ''})
         </Text>
       </Box>
     </Box>

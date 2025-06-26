@@ -2,6 +2,10 @@
 
 [![Gemini CLI CI](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml)
 
+<div align="right">
+  <a href="README.zh-CN.md">中文版</a>
+</div>
+
 ![Gemini CLI Screenshot](./docs/assets/gemini-screenshot.png)
 
 This repository contains the Gemini CLI, a command-line AI workflow tool that connects to your

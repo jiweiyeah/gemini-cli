@@ -43,12 +43,12 @@ export function AuthInProgress({
     >
       {timedOut ? (
         <Text color={Colors.AccentRed}>
-          Authentication timed out. Please try again.
+          认证超时。请重试。
         </Text>
       ) : (
         <Box>
           <Text>
-            <Spinner type="dots" /> Waiting for auth... (Press ESC to cancel)
+            <Spinner type="dots" /> 等待认证中... (按ESC取消)
           </Text>
         </Box>
       )}

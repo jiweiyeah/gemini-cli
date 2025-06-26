@@ -30,10 +30,10 @@ export function AuthDialog({
   );
   const items = [
     {
-      label: 'Login with Google',
+      label: '使用Google登录',
       value: AuthType.LOGIN_WITH_GOOGLE_PERSONAL,
     },
-    { label: 'Gemini API Key', value: AuthType.USE_GEMINI },
+    { label: 'Gemini API密钥', value: AuthType.USE_GEMINI },
     { label: 'Vertex AI', value: AuthType.USE_VERTEX_AI },
   ];
 
@@ -60,7 +60,7 @@ export function AuthDialog({
       if (settings.merged.selectedAuthType === undefined) {
         // Prevent exiting if no auth method is set
         setErrorMessage(
-          'You must select an auth method to proceed. Press Ctrl+C twice to exit.',
+          '您必须选择一种认证方式才能继续。按Ctrl+C两次退出。',
         );
         return;
       }
@@ -76,7 +76,7 @@ export function AuthDialog({
       padding={1}
       width="100%"
     >
-      <Text bold>Select Auth Method</Text>
+      <Text bold>选择认证方式</Text>
       <RadioButtonSelect
         items={items}
         initialIndex={initialAuthIndex}
@@ -90,10 +90,10 @@ export function AuthDialog({
         </Box>
       )}
       <Box marginTop={1}>
-        <Text color={Colors.Gray}>(Use Enter to select)</Text>
+        <Text color={Colors.Gray}>(按Enter键选择)</Text>
       </Box>
       <Box marginTop={1}>
-        <Text>Terms of Services and Privacy Notice for Gemini CLI</Text>
+        <Text>Gemini CLI的服务条款和隐私声明</Text>
       </Box>
       <Box marginTop={1}>
         <Text color={Colors.AccentBlue}>

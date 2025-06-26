@@ -58,8 +58,8 @@ export function EditorSettingsDialog({
   }
 
   const scopeItems = [
-    { label: 'User Settings', value: SettingScope.User },
-    { label: 'Workspace Settings', value: SettingScope.Workspace },
+    { label: '用户设置', value: SettingScope.User },
+    { label: '工作区设置', value: SettingScope.Workspace },
   ];
 
   const handleEditorSelect = (editorType: EditorType | 'not_set') => {
@@ -83,11 +83,11 @@ export function EditorSettingsDialog({
   if (settings.forScope(otherScope).settings.preferredEditor !== undefined) {
     otherScopeModifiedMessage =
       settings.forScope(selectedScope).settings.preferredEditor !== undefined
-        ? `(Also modified in ${otherScope})`
-        : `(Modified in ${otherScope})`;
+        ? `(也在${otherScope}中修改)`
+        : `(在${otherScope}中修改)`;
   }
 
-  let mergedEditorName = 'None';
+  let mergedEditorName = '无';
   if (
     settings.merged.preferredEditor &&
     isEditorAvailable(settings.merged.preferredEditor)
@@ -106,7 +106,7 @@ export function EditorSettingsDialog({
     >
       <Box flexDirection="column" width="45%" paddingRight={2}>
         <Text bold={focusedSection === 'editor'}>
-          {focusedSection === 'editor' ? '> ' : '  '}Select Editor{' '}
+          {focusedSection === 'editor' ? '> ' : '  '}选择编辑器{' '}
           <Text color={Colors.Gray}>{otherScopeModifiedMessage}</Text>
         </Text>
         <RadioButtonSelect
@@ -123,7 +123,7 @@ export function EditorSettingsDialog({
 
         <Box marginTop={1} flexDirection="column">
           <Text bold={focusedSection === 'scope'}>
-            {focusedSection === 'scope' ? '> ' : '  '}Apply To
+            {focusedSection === 'scope' ? '> ' : '  '}应用于
           </Text>
           <RadioButtonSelect
             items={scopeItems}
@@ -135,23 +135,22 @@ export function EditorSettingsDialog({
 
         <Box marginTop={1}>
           <Text color={Colors.Gray}>
-            (Use Enter to select, Tab to change focus)
+            (按Enter键选择，按Tab键切换焦点)
           </Text>
         </Box>
       </Box>
 
       <Box flexDirection="column" width="55%" paddingLeft={2}>
-        <Text bold>Editor Preference</Text>
+        <Text bold>编辑器偏好</Text>
         <Box flexDirection="column" gap={1} marginTop={1}>
           <Text color={Colors.Gray}>
-            These editors are currently supported. Please note that some editors
-            cannot be used in sandbox mode.
+            目前支持这些编辑器。请注意，某些编辑器在沙箱模式下无法使用。
           </Text>
           <Text color={Colors.Gray}>
-            Your preferred editor is:{' '}
+            您首选的编辑器是：{' '}
             <Text
               color={
-                mergedEditorName === 'None'
+                mergedEditorName === '无'
                   ? Colors.AccentRed
                   : Colors.AccentCyan
               }
@@ -159,7 +158,7 @@ export function EditorSettingsDialog({
             >
               {mergedEditorName}
             </Text>
-            .
+            。
           </Text>
         </Box>
       </Box>

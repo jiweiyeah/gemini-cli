@@ -2,6 +2,10 @@
 
 [![Gemini CLI CI](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml)
 
+<div align="right">
+  <a href="README.md">English</a>
+</div>
+
 ![Gemini CLI 截图](./docs/assets/gemini-screenshot.png)
 
 本仓库包含 Gemini CLI，这是一个命令行 AI 工作流工具，可以连接您的工具，理解您的代码并加速您的工作流程。

@@ -23,46 +23,46 @@ export const Help: React.FC<Help> = ({ commands }) => (
   >
     {/* Basics */}
     <Text bold color={Colors.Foreground}>
-      Basics:
+      基础:
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
-        Add context
+        添加上下文
       </Text>
-      : Use{' '}
+      : 使用{' '}
       <Text bold color={Colors.AccentPurple}>
         @
       </Text>{' '}
-      to specify files for context (e.g.,{' '}
+      指定文件作为上下文 (例如,{' '}
       <Text bold color={Colors.AccentPurple}>
         @src/myFile.ts
       </Text>
-      ) to target specific files or folders.
+      ) 来定位特定文件或文件夹。
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
-        Shell mode
+        Shell模式
       </Text>
-      : Execute shell commands via{' '}
+      : 通过{' '}
       <Text bold color={Colors.AccentPurple}>
         !
       </Text>{' '}
-      (e.g.,{' '}
+      执行shell命令 (例如,{' '}
       <Text bold color={Colors.AccentPurple}>
         !npm run start
       </Text>
-      ) or use natural language (e.g.{' '}
+      ) 或使用自然语言 (例如{' '}
       <Text bold color={Colors.AccentPurple}>
-        start server
+        启动服务器
       </Text>
-      ).
+      )。
     </Text>
 
     <Box height={1} />
 
     {/* Commands */}
     <Text bold color={Colors.Foreground}>
-      Commands:
+      命令:
     </Text>
     {commands
       .filter((command) => command.description)
@@ -80,50 +80,50 @@ export const Help: React.FC<Help> = ({ commands }) => (
         {' '}
         !{' '}
       </Text>
-      - shell command
+      - shell命令
     </Text>
 
     <Box height={1} />
 
     {/* Shortcuts */}
     <Text bold color={Colors.Foreground}>
-      Keyboard Shortcuts:
+      键盘快捷键:
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Enter
       </Text>{' '}
-      - Send message
+      - 发送消息
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Shift+Enter
       </Text>{' '}
-      - New line
+      - 新行
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Up/Down
       </Text>{' '}
-      - Cycle through your prompt history
+      - 浏览输入历史记录
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Alt+Left/Right
       </Text>{' '}
-      - Jump through words in the input
+      - 在输入中跳转单词
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Esc
       </Text>{' '}
-      - Cancel operation
+      - 取消操作
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Ctrl+C
       </Text>{' '}
-      - Quit application
+      - 退出应用
     </Text>
   </Box>
 );
