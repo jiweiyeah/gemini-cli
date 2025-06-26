@@ -59,26 +59,26 @@ export const StatsColumn: React.FC<{
       <Box marginTop={1} flexDirection="column">
         {/* All StatRows below will now inherit the gap */}
         <StatRow
-          label="Input Tokens"
+          label="输入令牌"
           value={stats.inputTokens.toLocaleString()}
         />
         <StatRow
-          label="Output Tokens"
+          label="输出令牌"
           value={stats.outputTokens.toLocaleString()}
         />
         {stats.toolUseTokens > 0 && (
           <StatRow
-            label="Tool Use Tokens"
+            label="工具使用令牌"
             value={stats.toolUseTokens.toLocaleString()}
           />
         )}
         <StatRow
-          label="Thoughts Tokens"
+          label="思考令牌"
           value={stats.thoughtsTokens.toLocaleString()}
         />
         {stats.cachedTokens > 0 && (
           <StatRow
-            label="Cached Tokens"
+            label="缓存令牌"
             value={cachedDisplay}
             valueColor={cachedColor}
           />
@@ -92,7 +92,7 @@ export const StatsColumn: React.FC<{
           borderStyle="single"
         />
         <StatRow
-          label="Total Tokens"
+          label="总令牌数"
           value={stats.totalTokens.toLocaleString()}
         />
         {children}
@@ -109,10 +109,10 @@ export const DurationColumn: React.FC<{
   wallTime: string;
 }> = ({ apiTime, wallTime }) => (
   <Box flexDirection="column" width={'48%'}>
-    <Text bold>Duration</Text>
+    <Text bold>持续时间</Text>
     <Box marginTop={1} flexDirection="column">
-      <StatRow label="API Time" value={apiTime} />
-      <StatRow label="Wall Time" value={wallTime} />
+      <StatRow label="API 时间" value={apiTime} />
+      <StatRow label="实际时间" value={wallTime} />
     </Box>
   </Box>
 );
