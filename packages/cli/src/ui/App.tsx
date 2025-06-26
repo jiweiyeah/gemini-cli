@@ -682,7 +682,7 @@ const App = ({ config, settings, startupWarnings = [] }: AppProps) => {
           ) : isAuthenticating ? (
             <AuthInProgress
               onTimeout={() => {
-                setAuthError('Authentication timed out. Please try again.');
+                setAuthError('身份验证超时。请重试。');
                 cancelAuthentication();
                 openAuthDialog();
               }}
@@ -737,11 +737,11 @@ const App = ({ config, settings, startupWarnings = [] }: AppProps) => {
                   )}
                   {ctrlCPressedOnce ? (
                     <Text color={Colors.AccentYellow}>
-                      Press Ctrl+C again to exit.
+                      再次按 Ctrl+C 退出。
                     </Text>
                   ) : ctrlDPressedOnce ? (
                     <Text color={Colors.AccentYellow}>
-                      Press Ctrl+D again to exit.
+                      再次按 Ctrl+D 退出。
                     </Text>
                   ) : (
                     <ContextSummaryDisplay
@@ -815,11 +815,11 @@ const App = ({ config, settings, startupWarnings = [] }: AppProps) => {
               ) : (
                 <>
                   <Text color={Colors.AccentRed}>
-                    Initialization Error: {initError}
+                    初始化错误: {initError}
                   </Text>
                   <Text color={Colors.AccentRed}>
                     {' '}
-                    Please check API key and configuration.
+                    请检查 API 密钥和配置。
                   </Text>
                 </>
               )}

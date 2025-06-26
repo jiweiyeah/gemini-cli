@@ -193,7 +193,7 @@ export const useSlashCommandProcessor = (
       {
         name: 'help',
         altName: '?',
-        description: 'for help on gemini-cli',
+        description: '获取 gemini-cli 的帮助信息',
         action: (_mainCommand, _subCommand, _args) => {
           onDebugMessage('Opening help.');
           setShowHelp(true);
@@ -201,19 +201,19 @@ export const useSlashCommandProcessor = (
       },
       {
         name: 'docs',
-        description: 'open full Gemini CLI documentation in your browser',
+        description: '在浏览器中打开完整的 Gemini CLI 文档',
         action: async (_mainCommand, _subCommand, _args) => {
           const docsUrl = 'https://goo.gle/gemini-cli-docs';
           if (process.env.SANDBOX && process.env.SANDBOX !== 'sandbox-exec') {
             addMessage({
               type: MessageType.INFO,
-              content: `Please open the following URL in your browser to view the documentation:\n${docsUrl}`,
+              content: `请在浏览器中打开以下网址查看文档：\n${docsUrl}`,
               timestamp: new Date(),
             });
           } else {
             addMessage({
               type: MessageType.INFO,
-              content: `Opening documentation in your browser: ${docsUrl}`,
+              content: `正在浏览器中打开文档：${docsUrl}`,
               timestamp: new Date(),
             });
             await open(docsUrl);
@@ -222,7 +222,7 @@ export const useSlashCommandProcessor = (
       },
       {
         name: 'clear',
-        description: 'clear the screen and conversation history',
+        description: '清除屏幕和对话历史',
         action: async (_mainCommand, _subCommand, _args) => {
           onDebugMessage('Clearing terminal and resetting chat.');
           clearItems();
@@ -233,21 +233,21 @@ export const useSlashCommandProcessor = (
       },
       {
         name: 'theme',
-        description: 'change the theme',
+        description: '更改主题',
         action: (_mainCommand, _subCommand, _args) => {
           openThemeDialog();
         },
       },
       {
         name: 'auth',
-        description: 'change the auth method',
+        description: '更改认证方式',
         action: (_mainCommand, _subCommand, _args) => {
           openAuthDialog();
         },
       },
       {
         name: 'editor',
-        description: 'set external editor preference',
+        description: '设置外部编辑器首选项',
         action: (_mainCommand, _subCommand, _args) => {
           openEditorDialog();
         },
@@ -255,7 +255,7 @@ export const useSlashCommandProcessor = (
       {
         name: 'stats',
         altName: 'usage',
-        description: 'check session stats',
+        description: '查看会话统计信息',
         action: (_mainCommand, _subCommand, _args) => {
           const now = new Date();
           const { sessionStartTime, cumulative, currentTurn } = session.stats;
@@ -272,7 +272,7 @@ export const useSlashCommandProcessor = (
       },
       {
         name: 'mcp',
-        description: 'list configured MCP servers and tools',
+        description: '列出已配置的 MCP 服务器和工具',
         action: async (_mainCommand, _subCommand, _args) => {
           // Check if the _subCommand includes a specific flag to control description visibility
           let useShowDescriptions = showToolDescriptions;
@@ -298,7 +298,7 @@ export const useSlashCommandProcessor = (
           if (!toolRegistry) {
             addMessage({
               type: MessageType.ERROR,
-              content: 'Could not retrieve tool registry.',
+              content: '无法获取工具注册表。',
               timestamp: new Date(),
             });
             return;
@@ -312,13 +312,13 @@ export const useSlashCommandProcessor = (
             if (process.env.SANDBOX && process.env.SANDBOX !== 'sandbox-exec') {
               addMessage({
                 type: MessageType.INFO,
-                content: `No MCP servers configured. Please open the following URL in your browser to view documentation:\n${docsUrl}`,
+                content: `未配置 MCP 服务器。请在浏览器中打开以下网址查看文档：\n${docsUrl}`,
                 timestamp: new Date(),
               });
             } else {
               addMessage({
                 type: MessageType.INFO,
-                content: `No MCP servers configured. Opening documentation in your browser: ${docsUrl}`,
+                content: `未配置 MCP 服务器。正在浏览器中打开文档：${docsUrl}`,
                 timestamp: new Date(),
               });
               await open(docsUrl);
@@ -339,11 +339,11 @@ export const useSlashCommandProcessor = (
             discoveryState === MCPDiscoveryState.IN_PROGRESS ||
             connectingServers.length > 0
           ) {
-            message += `\u001b[33m⏳ MCP servers are starting up (${connectingServers.length} initializing)...\u001b[0m\n`;
-            message += `\u001b[90mNote: First startup may take longer. Tool availability will update automatically.\u001b[0m\n\n`;
+            message += `\u001b[33m⏳ MCP 服务器正在启动（${connectingServers.length} 个正在初始化）...\u001b[0m\n`;
+            message += `\u001b[90m注意：首次启动可能需要较长时间。工具可用性将自动更新。\u001b[0m\n\n`;
           }
 
-          message += 'Configured MCP servers:\n\n';
+          message += '已配置的 MCP 服务器：\n\n';
 
           for (const serverName of serverNames) {
             const serverTools = toolRegistry.getToolsByServer(serverName);
@@ -472,7 +472,7 @@ export const useSlashCommandProcessor = (
       {
         name: 'memory',
         description:
-          'manage memory. Usage: /memory <show|refresh|add> [text for add]',
+          '管理记忆。用法：/memory <show|refresh|add> [添加的文本]',
         action: (mainCommand, subCommand, args) => {
           switch (subCommand) {
             case 'show':
@@ -486,7 +486,7 @@ export const useSlashCommandProcessor = (
             default:
               addMessage({
                 type: MessageType.ERROR,
-                content: `Unknown /memory command: ${subCommand}. Available: show, refresh, add`,
+                content: `未知的 /memory 命令：${subCommand}。可用命令：show, refresh, add`,
                 timestamp: new Date(),
               });
               return; // Explicitly return void
@@ -495,7 +495,7 @@ export const useSlashCommandProcessor = (
       },
       {
         name: 'tools',
-        description: 'list available Gemini CLI tools',
+        description: '列出可用的 Gemini CLI 工具',
         action: async (_mainCommand, _subCommand, _args) => {
           // Check if the _subCommand includes a specific flag to control description visibility
           let useShowDescriptions = showToolDescriptions;
@@ -517,7 +517,7 @@ export const useSlashCommandProcessor = (
           if (!tools) {
             addMessage({
               type: MessageType.ERROR,
-              content: 'Could not retrieve tools.',
+              content: '无法获取工具。',
               timestamp: new Date(),
             });
             return;
@@ -526,7 +526,7 @@ export const useSlashCommandProcessor = (
           // Filter out MCP tools by checking if they have a serverName property
           const geminiTools = tools.filter((tool) => !('serverName' in tool));
 
-          let message = 'Available Gemini CLI tools:\n\n';
+          let message = '可用的 Gemini CLI 工具：\n\n';
 
           if (geminiTools.length > 0) {
             geminiTools.forEach((tool) => {
@@ -575,18 +575,18 @@ export const useSlashCommandProcessor = (
       },
       {
         name: 'about',
-        description: 'show version info',
+        description: '显示版本信息',
         action: async (_mainCommand, _subCommand, _args) => {
           const osVersion = process.platform;
-          let sandboxEnv = 'no sandbox';
+          let sandboxEnv = '无沙盒';
           if (process.env.SANDBOX && process.env.SANDBOX !== 'sandbox-exec') {
             sandboxEnv = process.env.SANDBOX;
           } else if (process.env.SANDBOX === 'sandbox-exec') {
             sandboxEnv = `sandbox-exec (${
-              process.env.SEATBELT_PROFILE || 'unknown'
+              process.env.SEATBELT_PROFILE || '未知'
             })`;
           }
-          const modelVersion = config?.getModel() || 'Unknown';
+          const modelVersion = config?.getModel() || '未知';
           const cliVersion = await getCliVersion();
           addMessage({
             type: MessageType.ABOUT,
@@ -600,7 +600,7 @@ export const useSlashCommandProcessor = (
       },
       {
         name: 'bug',
-        description: 'submit a bug report',
+        description: '提交错误报告',
         action: async (_mainCommand, _subCommand, args) => {
           let bugDescription = _subCommand || '';
           if (args) {
@@ -609,15 +609,15 @@ export const useSlashCommandProcessor = (
           bugDescription = bugDescription.trim();
 
           const osVersion = `${process.platform} ${process.version}`;
-          let sandboxEnv = 'no sandbox';
+          let sandboxEnv = '无沙盒';
           if (process.env.SANDBOX && process.env.SANDBOX !== 'sandbox-exec') {
             sandboxEnv = process.env.SANDBOX.replace(/^gemini-(?:code-)?/, '');
           } else if (process.env.SANDBOX === 'sandbox-exec') {
             sandboxEnv = `sandbox-exec (${
-              process.env.SEATBELT_PROFILE || 'unknown'
+              process.env.SEATBELT_PROFILE || '未知'
             })`;
           }
-          const modelVersion = config?.getModel() || 'Unknown';
+          const modelVersion = config?.getModel() || '未知';
           const cliVersion = await getCliVersion();
           const memoryUsage = formatMemoryUsage(process.memoryUsage().rss);
 
@@ -642,7 +642,7 @@ export const useSlashCommandProcessor = (
 
           addMessage({
             type: MessageType.INFO,
-            content: `To submit your bug report, please open the following URL in your browser:\n${bugReportUrl}`,
+            content: `要提交错误报告，请在浏览器中打开以下网址：\n${bugReportUrl}`,
             timestamp: new Date(),
           });
           (async () => {
@@ -653,7 +653,7 @@ export const useSlashCommandProcessor = (
                 error instanceof Error ? error.message : String(error);
               addMessage({
                 type: MessageType.ERROR,
-                content: `Could not open URL in browser: ${errorMessage}`,
+                content: `无法在浏览器中打开网址：${errorMessage}`,
                 timestamp: new Date(),
               });
             }
@@ -663,7 +663,7 @@ export const useSlashCommandProcessor = (
       {
         name: 'chat',
         description:
-          'Manage conversation history. Usage: /chat <list|save|resume> [tag]',
+          '管理对话历史。用法：/chat <list|save|resume> [标签]',
         action: async (_mainCommand, subCommand, args) => {
           const tag = (args || '').trim();
           const logger = new Logger(config?.getSessionId() || '');
@@ -672,7 +672,7 @@ export const useSlashCommandProcessor = (
           if (!chat) {
             addMessage({
               type: MessageType.ERROR,
-              content: 'No chat client available for conversation status.',
+              content: '没有可用于对话状态的聊天客户端。',
               timestamp: new Date(),
             });
             return;
@@ -684,13 +684,13 @@ export const useSlashCommandProcessor = (
                 await logger.saveCheckpoint(chat?.getHistory() || [], tag);
                 addMessage({
                   type: MessageType.INFO,
-                  content: `Conversation checkpoint saved${tag ? ' with tag: ' + tag : ''}.`,
+                  content: `对话检查点已保存${tag ? '，标签为：' + tag : ''}。`,
                   timestamp: new Date(),
                 });
               } else {
                 addMessage({
                   type: MessageType.INFO,
-                  content: 'No conversation found to save.',
+                  content: '没有找到可保存的对话。',
                   timestamp: new Date(),
                 });
               }
@@ -703,7 +703,7 @@ export const useSlashCommandProcessor = (
               if (conversation.length === 0) {
                 addMessage({
                   type: MessageType.INFO,
-                  content: `No saved checkpoint found${tag ? ' with tag: ' + tag : ''}.`,
+                  content: `没有找到已保存的检查点${tag ? '，标签为：' + tag : ''}。`,
                   timestamp: new Date(),
                 });
                 return;
@@ -755,7 +755,7 @@ export const useSlashCommandProcessor = (
               addMessage({
                 type: MessageType.INFO,
                 content:
-                  'list of saved conversations: ' +
+                  '已保存对话列表：' +
                   (await savedChatTags()).join(', '),
                 timestamp: new Date(),
               });
@@ -763,7 +763,7 @@ export const useSlashCommandProcessor = (
             default:
               addMessage({
                 type: MessageType.ERROR,
-                content: `Unknown /chat command: ${subCommand}. Available: list, save, resume`,
+                content: `未知的 /chat 命令：${subCommand}。可用命令：list, save, resume`,
                 timestamp: new Date(),
               });
               return;
@@ -775,7 +775,7 @@ export const useSlashCommandProcessor = (
       {
         name: 'quit',
         altName: 'exit',
-        description: 'exit the cli',
+        description: '退出命令行界面',
         action: async (mainCommand, _subCommand, _args) => {
           const now = new Date();
           const { sessionStartTime, cumulative } = session.stats;
@@ -803,13 +803,13 @@ export const useSlashCommandProcessor = (
       {
         name: 'compress',
         altName: 'summarize',
-        description: 'Compresses the context by replacing it with a summary.',
+        description: '通过用摘要替换上下文来压缩上下文。',
         action: async (_mainCommand, _subCommand, _args) => {
           if (pendingCompressionItemRef.current !== null) {
             addMessage({
               type: MessageType.ERROR,
               content:
-                'Already compressing, wait for previous request to complete',
+                '已在压缩中，请等待上一个请求完成',
               timestamp: new Date(),
             });
             return;
@@ -839,14 +839,14 @@ export const useSlashCommandProcessor = (
             } else {
               addMessage({
                 type: MessageType.ERROR,
-                content: 'Failed to compress chat history.',
+                content: '压缩聊天历史失败。',
                 timestamp: new Date(),
               });
             }
           } catch (e) {
             addMessage({
               type: MessageType.ERROR,
-              content: `Failed to compress chat history: ${e instanceof Error ? e.message : String(e)}`,
+              content: `压缩聊天历史失败：${e instanceof Error ? e.message : String(e)}`,
               timestamp: new Date(),
             });
           }
@@ -859,7 +859,7 @@ export const useSlashCommandProcessor = (
       commands.push({
         name: 'restore',
         description:
-          'restore a tool call. This will reset the conversation and file history to the state it was in when the tool call was suggested',
+          '恢复工具调用。这将把对话和文件历史重置到提出工具调用时的状态',
         completion: async () => {
           const checkpointDir = config?.getProjectTempDir()
             ? path.join(config.getProjectTempDir(), 'checkpoints')
@@ -1054,10 +1054,10 @@ export const useSlashCommandProcessor = (
 
       addMessage({
         type: MessageType.ERROR,
-        content: `Unknown command: ${trimmed}`,
+        content: `未知命令：${trimmed}`,
         timestamp: new Date(),
       });
-      return true; // Indicate command was processed (even if unknown)
+      return true; // 表示命令已处理（即使是未知命令）
     },
     [addItem, slashCommands, addMessage],
   );

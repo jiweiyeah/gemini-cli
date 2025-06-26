@@ -56,7 +56,7 @@ export const Footer: React.FC<FooterProps> = ({
         )}
       </Box>
 
-      {/* Middle Section: Centered Sandbox Info */}
+      {/* 中间部分：居中的沙盒信息 */}
       <Box
         flexGrow={1}
         alignItems="center"
@@ -69,23 +69,23 @@ export const Footer: React.FC<FooterProps> = ({
           </Text>
         ) : process.env.SANDBOX === 'sandbox-exec' ? (
           <Text color={Colors.AccentYellow}>
-            MacOS Seatbelt{' '}
+            MacOS 安全带{' '}
             <Text color={Colors.Gray}>({process.env.SEATBELT_PROFILE})</Text>
           </Text>
         ) : (
           <Text color={Colors.AccentRed}>
-            no sandbox <Text color={Colors.Gray}>(see /docs)</Text>
+            无沙盒 <Text color={Colors.Gray}>(参见 /docs)</Text>
           </Text>
         )}
       </Box>
 
-      {/* Right Section: Gemini Label and Console Summary */}
+      {/* 右侧部分：Gemini 标签和控制台摘要 */}
       <Box alignItems="center">
         <Text color={Colors.AccentBlue}>
           {' '}
           {model}{' '}
           <Text color={Colors.Gray}>
-            ({((1 - percentage) * 100).toFixed(0)}% context left)
+            ({((1 - percentage) * 100).toFixed(0)}% 上下文剩余)
           </Text>
         </Text>
         {corgiMode && (
