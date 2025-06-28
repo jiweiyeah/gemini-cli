@@ -2,9 +2,11 @@
 
 [![Gemini CLI CI](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml)
 
-<div align="right">
-  <a href="README.md">English</a>
-</div>
+<p align="right">
+  <a href="README.md">
+    <img src="https://img.shields.io/badge/-English-blue?style=for-the-badge&logo=googletranslate&logoColor=white" alt="English" />
+  </a>
+</p>
 
 ![Gemini CLI 截图](./docs/assets/gemini-screenshot.png)
 
