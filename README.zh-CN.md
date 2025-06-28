@@ -26,13 +26,15 @@
 2. **运行 CLI：** 在终端中执行以下命令：
 
    ```bash
-   npx https://github.com/google-gemini/gemini-cli
+   npx https://github.com/jiweiyeah/gemini-cli-chinese
+   or
+   npx gemini-cli-chinese
    ```
 
    或者通过以下方式安装：
 
    ```bash
-   npm install -g @google/gemini-cli
+   npm install -g gemini-cli-chinese
    gemini
    ```
 
@@ -69,7 +71,7 @@ gemini
 或者使用现有项目：
 
 ```sh
-git clone https://github.com/google-gemini/gemini-cli
+git clone https://github.com/jiweiyeah/gemini-cli-chinese
 cd gemini-cli
 gemini
 > 给我一个昨天所有变更的摘要

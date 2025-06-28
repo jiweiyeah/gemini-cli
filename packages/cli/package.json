@@ -1,6 +1,6 @@
 {
-  "name": "@google/gemini-cli",
-  "version": "0.1.5",
+  "name": "gemini-cli-chinese-cli",
+  "version": "0.1.0",
   "description": "Gemini CLI",
   "type": "module",
   "main": "dist/index.js",
@@ -28,7 +28,7 @@
     "sandboxImageUri": "us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.1.1"
   },
   "dependencies": {
-    "@google/gemini-cli-core": "*",
+    "gemini-cli-chinese-core": "*",
     "@types/update-notifier": "^6.0.8",
     "command-exists": "^1.2.9",
     "diff": "^7.0.0",

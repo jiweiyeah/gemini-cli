@@ -24,7 +24,7 @@ import {
   ThoughtSummary,
   UnauthorizedError,
   UserPromptEvent,
-} from '@google/gemini-cli-core';
+} from 'gemini-cli-chinese-core';
 import { type Part, type PartListUnion } from '@google/genai';
 import {
   StreamingState,

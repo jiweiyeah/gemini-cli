@@ -29,13 +29,15 @@ With the Gemini CLI you can:
 2. **Run the CLI:** Execute the following command in your terminal:
 
    ```bash
-   npx https://github.com/google-gemini/gemini-cli
+   npx https://github.com/jiweiyeah/gemini-cli-chinese
+   or
+   npx gemini-cli-chinese
    ```
 
    Or install it with:
 
    ```bash
-   npm install -g @google/gemini-cli
+   npm install -g gemini-cli-chinese
    gemini
    ```
 
@@ -72,7 +74,7 @@ gemini
 Or work with an existing project:
 
 ```sh
-git clone https://github.com/google-gemini/gemini-cli
+git clone https://github.com/jiweiyeah/gemini-cli-chinese
 cd gemini-cli
 gemini
 > Give me a summary of all of the changes that went in yesterday
